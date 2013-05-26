@@ -1,0 +1,854 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<struct type='{_GMSVisibleRegion=&quot;nearLeft&quot;{?=&quot;latitude&quot;d&quot;longitude&quot;d}&quot;nearRight&quot;{?=&quot;latitude&quot;d&quot;longitude&quot;d}&quot;farLeft&quot;{?=&quot;latitude&quot;d&quot;longitude&quot;d}&quot;farRight&quot;{?=&quot;latitude&quot;d&quot;longitude&quot;d}}' name='GMSVisibleRegion'>
+<field declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=&quot;latitude&quot;d&quot;longitude&quot;d}' name='nearLeft'/>
+<field declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=&quot;latitude&quot;d&quot;longitude&quot;d}' name='nearRight'/>
+<field declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=&quot;latitude&quot;d&quot;longitude&quot;d}' name='farLeft'/>
+<field declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=&quot;latitude&quot;d&quot;longitude&quot;d}' name='farRight'/>
+</struct>
+<constant const='true' declared_type='int' type='i' name='kGMSGroundOverlayDefaultAnchor'/>
+<constant const='true' declared_type='int' type='i' name='kGMSGroundOverlayDefaultZoom'/>
+<constant const='true' declared_type='NSString*' type='@' name='kGMSLayerCameraBearingKey'/>
+<constant const='true' declared_type='NSString*' type='@' name='kGMSLayerCameraLatitudeKey'/>
+<constant const='true' declared_type='NSString*' type='@' name='kGMSLayerCameraLongitudeKey'/>
+<constant const='true' declared_type='NSString*' type='@' name='kGMSLayerCameraViewingAngleKey'/>
+<constant const='true' declared_type='NSString*' type='@' name='kGMSLayerCameraZoomLevelKey'/>
+<constant const='true' declared_type='CGPoint' type='{CGPoint=ff}' name='kGMSMarkerDefaultGroundAnchor'/>
+<constant const='true' declared_type='CGPoint' type='{CGPoint=ff}' name='kGMSMarkerDefaultInfoWindowAnchor'/>
+<constant const='true' declared_type='int' type='i' name='kGMSMaxZoomLevel'/>
+<constant const='true' declared_type='int' type='i' name='kGMSMinZoomLevel'/>
+<constant const='true' declared_type='UIImage*' type='@' name='kGMSTileLayerNoTile'/>
+<enum value='4' name='kGMSTypeHybrid'/>
+<enum value='5' name='kGMSTypeNone'/>
+<enum value='1' name='kGMSTypeNormal'/>
+<enum value='2' name='kGMSTypeSatellite'/>
+<enum value='3' name='kGMSTypeTerrain'/>
+<class name='GMSCameraPosition'>
+<method selector='bearing'>
+<retval declared_type='CLLocationDirection' type='d'/>
+</method>
+<method class_method='true' selector='cameraWithLatitude:longitude:zoom:'>
+<arg declared_type='CLLocationDegrees' type='d' index='0' name='latitude'/>
+<arg declared_type='CLLocationDegrees' type='d' index='1' name='longitude'/>
+<arg declared_type='CGFloat' type='f' index='2' name='zoom'/>
+<retval declared_type='GMSCameraPosition*' type='@'/>
+</method>
+<method class_method='true' selector='cameraWithLatitude:longitude:zoom:bearing:viewingAngle:'>
+<arg declared_type='CLLocationDegrees' type='d' index='0' name='latitude'/>
+<arg declared_type='CLLocationDegrees' type='d' index='1' name='longitude'/>
+<arg declared_type='CGFloat' type='f' index='2' name='zoom'/>
+<arg declared_type='CLLocationDirection' type='d' index='3' name='bearing'/>
+<arg declared_type='double' type='d' index='4' name='viewingAngle'/>
+<retval declared_type='GMSCameraPosition*' type='@'/>
+</method>
+<method class_method='true' selector='cameraWithTarget:zoom:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='target'/>
+<arg declared_type='CGFloat' type='f' index='1' name='zoom'/>
+<retval declared_type='GMSCameraPosition*' type='@'/>
+</method>
+<method class_method='true' selector='cameraWithTarget:zoom:bearing:viewingAngle:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='target'/>
+<arg declared_type='CGFloat' type='f' index='1' name='zoom'/>
+<arg declared_type='CLLocationDirection' type='d' index='2' name='bearing'/>
+<arg declared_type='double' type='d' index='3' name='viewingAngle'/>
+<retval declared_type='GMSCameraPosition*' type='@'/>
+</method>
+<method selector='initWithTarget:zoom:bearing:viewingAngle:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='target'/>
+<arg declared_type='CGFloat' type='f' index='1' name='zoom'/>
+<arg declared_type='CLLocationDirection' type='d' index='2' name='bearing'/>
+<arg declared_type='double' type='d' index='3' name='viewingAngle'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='targetAsCoordinate'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='viewingAngle'>
+<retval declared_type='double' type='d'/>
+</method>
+<method selector='zoom'>
+<retval declared_type='int' type='i'/>
+</method>
+<method class_method='true' selector='zoomAtCoordinate:forMeters:perPoints:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='cooord'/>
+<arg declared_type='id' type='@' index='1' name='meters'/>
+<arg declared_type='id' type='@' index='2' name='points'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GMSCameraUpdate'>
+<method class_method='true' selector='fitBounds:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='bounds'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='fitBounds:withPadding:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='bounds'/>
+<arg declared_type='id' type='@' index='1' name='padding'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='scrollByX:Y:'>
+<arg declared_type='id' type='@' index='0' name='dX'/>
+<arg declared_type='id' type='@' index='1' name='dY'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='setCamera:'>
+<arg declared_type='GMSCameraPosition*' type='@' index='0' name='camera'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='setTarget:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='target'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='setTarget:zoom:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='target'/>
+<arg declared_type='id' type='@' index='1' name='zoom'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='zoomBy:'>
+<arg declared_type='id' type='@' index='0' name='delta'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='zoomBy:atPoint:'>
+<arg declared_type='id' type='@' index='0' name='zoom'/>
+<arg declared_type='id' type='@' index='1' name='point'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='zoomIn'>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='zoomOut'>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+<method class_method='true' selector='zoomTo:'>
+<arg declared_type='id' type='@' index='0' name='zoom'/>
+<retval declared_type='GMSCameraUpdate*' type='@'/>
+</method>
+</class>
+<class name='GMSCircle'>
+<method class_method='true' selector='circleWithPosition:radius:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<arg declared_type='id' type='@' index='1' name='radius'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='fillColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='position'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='radius'>
+<retval declared_type='int' type='i'/>
+</method>
+<method selector='setFillColor:'>
+<arg declared_type='int*' type='^i' index='0' name='fillColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPosition:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRadius:'>
+<arg declared_type='int' type='i' index='0' name='radius'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeColor:'>
+<arg declared_type='int*' type='^i' index='0' name='strokeColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeWidth:'>
+<arg declared_type='int' type='i' index='0' name='strokeWidth'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='strokeColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='strokeWidth'>
+<retval declared_type='int' type='i'/>
+</method>
+</class>
+<class name='GMSCoordinateBounds'>
+<method selector='containsCoordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coordinate'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='includingBounds:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='other'/>
+<retval declared_type='GMSCoordinateBounds*' type='@'/>
+</method>
+<method selector='includingCoordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coordinate'/>
+<retval declared_type='GMSCoordinateBounds*' type='@'/>
+</method>
+<method selector='includingPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='GMSCoordinateBounds*' type='@'/>
+</method>
+<method selector='initWithCoordinate:coordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coord1'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coord2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithRegion:'>
+<arg declared_type='id' type='@' index='0' name='region'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='intersectsBounds:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='other'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isValid'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='northEast'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='southWest'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+</class>
+<class name='GMSGeocoder'>
+<method class_method='true' selector='geocoder'>
+<retval declared_type='GMSGeocoder*' type='@'/>
+</method>
+<method selector='reverseGeocodeCoordinate:completionHandler:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coordinate'/>
+<arg declared_type='GMSReverseGeocodeCallback' type='@?' index='1' function_pointer='true' name='handler'>
+<arg declared_type='int*' type='^i'/>
+<arg declared_type='NSError*' type='@'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GMSGroundOverlay'>
+<method selector='anchor'>
+<retval declared_type='int' type='i'/>
+</method>
+<method selector='bearing'>
+<retval declared_type='CLLocationDirection' type='d'/>
+</method>
+<method selector='bounds'>
+<retval declared_type='GMSCoordinateBounds*' type='@'/>
+</method>
+<method class_method='true' selector='groundOverlayWithBounds:icon:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='bounds'/>
+<arg declared_type='id' type='@' index='1' name='icon'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='groundOverlayWithPosition:icon:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<arg declared_type='id' type='@' index='1' name='icon'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='icon'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='position'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='setAnchor:'>
+<arg declared_type='int' type='i' index='0' name='anchor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setBearing:'>
+<arg declared_type='CLLocationDirection' type='d' index='0' name='bearing'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setBounds:'>
+<arg declared_type='GMSCoordinateBounds*' type='@' index='0' name='bounds'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIcon:'>
+<arg declared_type='int*' type='^i' index='0' name='icon'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPosition:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setZoomLevel:'>
+<arg declared_type='int' type='i' index='0' name='zoomLevel'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='zoomLevel'>
+<retval declared_type='int' type='i'/>
+</method>
+</class>
+<class name='GMSMapLayer'>
+<method selector='cameraBearing'>
+<retval declared_type='CLLocationDirection' type='d'/>
+</method>
+<method selector='cameraLatitude'>
+<retval declared_type='CLLocationDegrees' type='d'/>
+</method>
+<method selector='cameraLongitude'>
+<retval declared_type='CLLocationDegrees' type='d'/>
+</method>
+<method selector='cameraViewingAngle'>
+<retval declared_type='double' type='d'/>
+</method>
+<method selector='cameraZoomLevel'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+<method selector='setCameraBearing:'>
+<arg declared_type='CLLocationDirection' type='d' index='0' name='cameraBearing'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCameraLatitude:'>
+<arg declared_type='CLLocationDegrees' type='d' index='0' name='cameraLatitude'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCameraLongitude:'>
+<arg declared_type='CLLocationDegrees' type='d' index='0' name='cameraLongitude'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCameraViewingAngle:'>
+<arg declared_type='double' type='d' index='0' name='cameraViewingAngle'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCameraZoomLevel:'>
+<arg declared_type='CGFloat' type='f' index='0' name='cameraZoomLevel'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GMSMapView'>
+<method selector='camera'>
+<retval declared_type='GMSCameraPosition*' type='@'/>
+</method>
+<method selector='clear'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isBuildingsEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isMyLocationEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isTrafficEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='layer'>
+<retval declared_type='GMSMapLayer*' type='@'/>
+</method>
+<method selector='mapType'>
+<retval declared_type='GMSMapViewType' type='i'/>
+</method>
+<method class_method='true' selector='mapWithFrame:camera:'>
+<arg declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' index='0' name='frame'/>
+<arg declared_type='GMSCameraPosition*' type='@' index='1' name='camera'/>
+<retval declared_type='GMSMapView*' type='@'/>
+</method>
+<method selector='moveCamera:'>
+<arg declared_type='GMSCameraUpdate*' type='@' index='0' name='update'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='myLocation'>
+<retval declared_type='CLLocation*' type='@'/>
+</method>
+<method selector='projection'>
+<retval declared_type='GMSProjection*' type='@'/>
+</method>
+<method selector='selectedMarker'>
+<retval declared_type='GMSMarker*' type='@'/>
+</method>
+<method selector='setBuildingsEnabled:'>
+<arg declared_type='BOOL' type='B' index='0' name='buildingsEnabled'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCamera:'>
+<arg declared_type='GMSCameraPosition*' type='@' index='0' name='camera'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' type='@' index='0' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMapType:'>
+<arg declared_type='GMSMapViewType' type='i' index='0' name='mapType'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMyLocation:'>
+<arg declared_type='CLLocation*' type='@' index='0' name='myLocation'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMyLocationEnabled:'>
+<arg declared_type='BOOL' type='B' index='0' name='myLocationEnabled'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSelectedMarker:'>
+<arg declared_type='GMSMarker*' type='@' index='0' name='selectedMarker'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTrafficEnabled:'>
+<arg declared_type='BOOL' type='B' index='0' name='trafficEnabled'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='settings'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='startRendering'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='stopRendering'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GMSMarker'>
+<method selector='groundAnchor'>
+<retval declared_type='CGPoint' type='{CGPoint=ff}'/>
+</method>
+<method selector='icon'>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='infoWindowAnchor'>
+<retval declared_type='CGPoint' type='{CGPoint=ff}'/>
+</method>
+<method selector='isAnimated'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method class_method='true' selector='markerImageWithColor:'>
+<arg declared_type='UIColor*' type='@' index='0' name='color'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method class_method='true' selector='markerWithPosition:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='position'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='setAnimated:'>
+<arg declared_type='BOOL' type='B' index='0' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setGroundAnchor:'>
+<arg declared_type='CGPoint' type='{CGPoint=ff}' index='0' name='groundAnchor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIcon:'>
+<arg declared_type='UIImage*' type='@' index='0' name='icon'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInfoWindowAnchor:'>
+<arg declared_type='CGPoint' type='{CGPoint=ff}' index='0' name='infoWindowAnchor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPosition:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='position'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSnippet:'>
+<arg declared_type='NSString*' type='@' index='0' name='snippet'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUserData:'>
+<arg declared_type='id' type='@' index='0' name='userData'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='snippet'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userData'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GMSMutablePath'>
+<method selector='addCoordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coord'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addLatitude:longitude:'>
+<arg declared_type='CLLocationDegrees' type='d' index='0' name='latitude'/>
+<arg declared_type='CLLocationDegrees' type='d' index='1' name='longitude'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='insertCoordinate:atIndex:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coord'/>
+<arg declared_type='NSUInteger' type='I' index='1' name='index'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='removeAllCoordinates'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='removeCoordinateAtIndex:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='index'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='removeLastCoordinate'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='replaceCoordinateAtIndex:withCoordinate:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='index'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coord'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GMSOverlay'>
+<method selector='isTappable'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='map'>
+<retval declared_type='GMSMapView*' type='@'/>
+</method>
+<method selector='setMap:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='map'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTappable:'>
+<arg declared_type='BOOL' type='B' index='0' name='tappable'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTitle:'>
+<arg declared_type='NSString*' type='@' index='0' name='title'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='title'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GMSPath'>
+<method selector='coordinateAtIndex:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='index'/>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='count'>
+<retval declared_type='NSUInteger' type='I'/>
+</method>
+<method selector='encodedPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='path'>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='pathFromEncodedPath:'>
+<arg declared_type='NSString*' type='@' index='0' name='encodedPath'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='GMSPolygon'>
+<method selector='fillColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='geodesic'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='path'>
+<retval declared_type='GMSPath*' type='@'/>
+</method>
+<method class_method='true' selector='polygonWithPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setFillColor:'>
+<arg declared_type='UIColor*' type='@' index='0' name='fillColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setGeodesic:'>
+<arg declared_type='BOOL' type='B' index='0' name='geodesic'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeColor:'>
+<arg declared_type='UIColor*' type='@' index='0' name='strokeColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeWidth:'>
+<arg declared_type='CGFloat' type='f' index='0' name='strokeWidth'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='strokeColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='strokeWidth'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+</class>
+<class name='GMSPolyline'>
+<method selector='geodesic'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='path'>
+<retval declared_type='GMSPath*' type='@'/>
+</method>
+<method class_method='true' selector='polylineWithPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setGeodesic:'>
+<arg declared_type='BOOL' type='B' index='0' name='geodesic'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPath:'>
+<arg declared_type='GMSPath*' type='@' index='0' name='path'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeColor:'>
+<arg declared_type='UIColor*' type='@' index='0' name='strokeColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStrokeWidth:'>
+<arg declared_type='CGFloat' type='f' index='0' name='strokeWidth'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='strokeColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='strokeWidth'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+</class>
+<class name='GMSProjection'>
+<method selector='containsCoordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coordinate'/>
+<retval declared_type='_Bool' type='B'/>
+</method>
+<method selector='coordinateForPoint:'>
+<arg declared_type='CGPoint' type='{CGPoint=ff}' index='0' name='point'/>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='pointForCoordinate:'>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='0' name='coordinate'/>
+<retval declared_type='CGPoint' type='{CGPoint=ff}'/>
+</method>
+<method selector='pointsForMeters:atCoordinate:'>
+<arg declared_type='CGFloat' type='f' index='0' name='meters'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coordinate'/>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+<method selector='visibleRegion'>
+<retval declared_type='GMSVisibleRegion' type='{_GMSVisibleRegion={?=dd}{?=dd}{?=dd}{?=dd}}'/>
+</method>
+</class>
+<class name='GMSReverseGeocodeResponse'>
+<method selector='firstResult'>
+<retval declared_type='GMSReverseGeocodeResult*' type='@'/>
+</method>
+<method selector='results'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</class>
+<class name='GMSReverseGeocodeResult'>
+<method selector='addressLine1'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='addressLine2'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='GMSServices'>
+<method class_method='true' selector='SDKVersion'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='openSourceLicenseInfo'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='provideAPIKey:'>
+<arg declared_type='NSString*' type='@' index='0' name='APIKey'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</class>
+<class name='GMSSyncTileLayer'>
+<method selector='tileForX:y:zoom:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='x'/>
+<arg declared_type='NSUInteger' type='I' index='1' name='y'/>
+<arg declared_type='NSUInteger' type='I' index='2' name='zoom'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+</class>
+<class name='GMSTileLayer'>
+<method selector='clearTileCache'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='map'>
+<retval declared_type='GMSMapView*' type='@'/>
+</method>
+<method selector='requestTileForX:y:zoom:receiver:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='x'/>
+<arg declared_type='NSUInteger' type='I' index='1' name='y'/>
+<arg declared_type='NSUInteger' type='I' index='2' name='zoom'/>
+<arg declared_type='id' type='@' index='3' name='receiver'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMap:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='map'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setZIndex:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='zIndex'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='zIndex'>
+<retval declared_type='NSUInteger' type='I'/>
+</method>
+</class>
+<class name='GMSUISettings'>
+<method selector='compassButton'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='myLocationButton'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='rotateGestures'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='scrollGestures'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setAllGesturesEnabled:'>
+<arg declared_type='BOOL' type='B' index='0' name='enabled'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCompassButton:'>
+<arg declared_type='BOOL' type='B' index='0' name='compassButton'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMyLocationButton:'>
+<arg declared_type='BOOL' type='B' index='0' name='myLocationButton'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRotateGestures:'>
+<arg declared_type='BOOL' type='B' index='0' name='rotateGestures'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setScrollGestures:'>
+<arg declared_type='BOOL' type='B' index='0' name='scrollGestures'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTiltGestures:'>
+<arg declared_type='BOOL' type='B' index='0' name='tiltGestures'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setZoomGestures:'>
+<arg declared_type='BOOL' type='B' index='0' name='zoomGestures'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tiltGestures'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='zoomGestures'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</class>
+<class name='GMSURLTileLayer'>
+<method selector='setUserAgent:'>
+<arg declared_type='NSString*' type='@' index='0' name='userAgent'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='tileLayerWithURLConstructor:'>
+<arg declared_type='GMSTileURLConstructor' type='@?' index='0' function_pointer='true' name='constructor'>
+<arg declared_type='NSUInteger' type='I'/>
+<arg declared_type='NSUInteger' type='I'/>
+<arg declared_type='NSUInteger' type='I'/>
+<retval declared_type='NSURL*' type='@'/>
+</arg>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='userAgent'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='mapView:didChangeCameraPosition:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSCameraPosition*' type='@' index='1' name='position'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='mapView:didLongPressAtCoordinate:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coordinate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='mapView:didTapAtCoordinate:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coordinate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='mapView:didTapInfoWindowOfMarker:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='mapView:didTapMarker:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='mapView:didTapOverlay:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSOverlay*' type='@' index='1' name='overlay'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='mapView:markerInfoWindow:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='UIView*' type='@'/>
+</method>
+<method selector='receiveTileWithX:y:zoom:image:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='x'/>
+<arg declared_type='NSUInteger' type='I' index='1' name='y'/>
+<arg declared_type='NSUInteger' type='I' index='2' name='zoom'/>
+<arg declared_type='UIImage*' type='@' index='3' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<informal_protocol name='GMSMapViewDelegate'>
+<method type='v16@0:4@8@12' selector='mapView:didChangeCameraPosition:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSCameraPosition*' type='@' index='1' name='position'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v28@0:4@8{?=dd}12' selector='mapView:didLongPressAtCoordinate:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coordinate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v28@0:4@8{?=dd}12' selector='mapView:didTapAtCoordinate:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' index='1' name='coordinate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v16@0:4@8@12' selector='mapView:didTapInfoWindowOfMarker:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='B16@0:4@8@12' selector='mapView:didTapMarker:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method type='v16@0:4@8@12' selector='mapView:didTapOverlay:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSOverlay*' type='@' index='1' name='overlay'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='@16@0:4@8@12' selector='mapView:markerInfoWindow:'>
+<arg declared_type='GMSMapView*' type='@' index='0' name='mapView'/>
+<arg declared_type='GMSMarker*' type='@' index='1' name='marker'/>
+<retval declared_type='UIView*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='GMSTileReceiver'>
+<method type='v24@0:4I8I12I16@20' selector='receiveTileWithX:y:zoom:image:'>
+<arg declared_type='NSUInteger' type='I' index='0' name='x'/>
+<arg declared_type='NSUInteger' type='I' index='1' name='y'/>
+<arg declared_type='NSUInteger' type='I' index='2' name='zoom'/>
+<arg declared_type='UIImage*' type='@' index='3' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+</signatures>
