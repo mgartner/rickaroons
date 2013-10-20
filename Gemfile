@@ -1,3 +1,5 @@
 source 'https://rubygems.org'
 
-#gem 'motion-cocoapods'
+gem 'motion-cocoapods'
+gem 'afmotion'
+gem 'teacup'

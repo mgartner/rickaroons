@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
-require 'motion/project'
+require 'motion/project/template/ios'
 require 'rubygems'
 
 # Include the gems from the Gemfile.
@@ -26,9 +26,11 @@ Motion::Project::App.setup do |app|
                '/usr/lib/libz.dylib']
 
   # Add the necessary cocoa pods.
-  #app.pods do
-   # pod "Google-Maps-iOS-SDK"
-  #end
+  app.pods do
+    pod "AFNetworking"
+    pod "SVProgressHUD"
+    pod "JASidePanels"
+  end
 
   # Include custom version of SEHumanizedTimeDiff
   app.vendor_project('vendor/GoogleMaps-iOS-1.3.0/GoogleMaps.framework', :static, :products => ['GoogleMaps'], :headers_dir => 'Headers')
